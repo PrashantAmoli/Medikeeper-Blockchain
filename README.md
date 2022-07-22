@@ -1,6 +1,5 @@
 # Blockchain Based Medical Health Records <img src="https://thumbs.gfycat.com/ScientificSimilarIvorybilledwoodpecker-max-1mb.gif" width="70" align="bottom" >
 
-
 This Repository is a part of Blockchain based medical health record system, It includes the implementation of Blockchain section only. Full Project with working demo can be viewed here -> https://medikeeper.vercel.app
 
 ## Blockchain
