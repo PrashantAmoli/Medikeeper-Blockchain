@@ -53,12 +53,6 @@ Pass the wallet addreess of the user who is going to be the user and you are all
 <img src="https://images.squarespace-cdn.com/content/v1/5a8694a6e45a7c0c0c9dfac1/1625848330150-P6AZKX3IWVSWBSTR7D6X/report_mini_black_animated.gif" height="150" align="center">
 </p>
 
-
-## Future Updates:
-
-1. Patient Have Permission to: Read Only
-2. Change the contract such that any other doctor can also add a doctor. And simultaneouly, the doctor can give the viewing rights to the patient. This will remove the need of the Owner.
-
 ## Clean Networks:
 
 truffle networks --clean : removes all the deployments
