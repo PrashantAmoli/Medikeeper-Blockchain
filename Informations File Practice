@@ -1,110 +1,106 @@
-// So to call the contracts from another files.,
+⚠️  Important ⚠️
+If you're using an HDWalletProvider, it must be Web3 1.0 enabled or your migration will hang.
+
+Starting migrations...
+======================
+> Network name:    'goerli'
+> Network id:      5
+> Block gas limit: 29999972
 
 
-// 1. import the contract first
-// 2. Need to specify the address of th econtract that we are going to use.
-// 3. Then we can call th econtract like tihs:
+1_initial_migration.js
+======================
 
-// //We call the contract by, contractname varibalename = contractname(contract's address);
-// //after that we will call the functions using. variablename.funcitonName
+   Deploying 'Migrations'
+   ----------------------
+   > transaction hash:    0x370d4637d076c2ad5d24ab630b0fe5eaae9ebe5df9f606d23d32ddb2658067c0
+   > Blocks: 1            Seconds: 10
+   > contract address:    0x76f54e69C9cE996240B2b1151199c38D65F09fC6
+   > account:             0x087298b2F76741E2D30566A7f5138D6896aBf108
+   > balance:             1.796437732462892843
+   > gas used:            199165
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.0039833 ETH
 
-
-// pragma solidity >=0.7.0 <0.9.0;
-// import './patients.sol';
-// import './doctors.sol';
-
-
-// contract medical{
-//     address contractPatient;
-//     address contractDoctor;
-
-//     function setAddresses(address _patientsAddress, address _doctorsAddress) external{
-//         contractDoctor = _doctorsAddress;
-//         contractPatient = _patientsAddress;
-//     }
-
-//     struct patientsData{
-//         string patientName;
-//         string doctorName;
-//     }
-
-//     function callTheFunctions(string memory _patientId, string memory _doctorId, string memory _name, string memory _docName) external returns(patientsData memory){
-//         //define the contracts instance varibales.
-//         //contractName varibaleName = contractName (address of the contract);
-
-//         patients patient_ = patients(contractPatient);
-//         doctors doctor_ = doctors(contractDoctor);
-
-//         //now we can call the functions of the contracts....
-//         //example...
-//         //store the name of the patient in the patientsContract
-//         patient_.addPatientName(_patientId, _name);
-//         patientsData.patientName = patient_.getPatientName(_patientId);
-//         //Now storing the doctors name and getting it.
-//         doctor_.addDoctorName(_doctorId, _docName);
-//         patientsData.doctorName = patient_.getDoctorName(_doctorId);
-//         return patientsData;
-//     }
-// }
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:           0.0039833 ETH
 
 
-// Now we are using the whole contract, but if we want to use only a few functions, then we can use interface.
-// We just need to go to the contract whose functions we need to use, create a interface like this:
+2_deploy_contracts.js
+=====================
 
-// contract InterfaceB{
-//     //define the functions only.
-//     function name() public view returns(string memory);
-//     function age() public view returns(string memory);
-// }
-
-
-
-
-// Working with structs
-
-// https://www.youtube.com/watch?v=UkdU0cuAp9U
-
-
-// 1. create a struct..
-// 2. when using struct inside the function, first create its instance.
-// 3. Instance can be created like this: //structureName memory variableName = structureName(pass the parameters);
+   Deploying 'AccessControl'
+   -------------------------
+   > transaction hash:    0x96ecaa15b29f5de8e84b1b40db4c9869277e3d5e825f06081c641bf0436fb2fa
+   > Blocks: 2            Seconds: 18
+   > contract address:    0x7B2F53F389a5AE4eF79c524C4E9EBb9592FB0e83
+   > account:             0x087298b2F76741E2D30566A7f5138D6896aBf108
+   > balance:             1.788118252462892843
+   > gas used:            415974
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00831948 ETH
 
 
-// Sample Code:
+   Deploying 'Patients'
+   --------------------
+   > transaction hash:    0x9944523710f970296f2b6d3262b95d9d35da7708231346a1043f427a8b3c9637
+   > Blocks: 2            Seconds: 18
+   > contract address:    0xd30FC7717590A9039eCD0f401Cc1a7C8B9c684eb
+   > account:             0x087298b2F76741E2D30566A7f5138D6896aBf108
+   > balance:             1.747191852462892843
+   > gas used:            2046320
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.0409264 ETH
 
 
+   Deploying 'Doctors'
+   -------------------
+   > transaction hash:    0x1c5f76779d404e88b8c1d17fb49a184a095f898dd674b102a97be011bc54c2c0
+   > Blocks: 2            Seconds: 18
+   > contract address:    0x825FbD064d8418054Ddb7307d0E8ab72C6eD955f
+   > account:             0x087298b2F76741E2D30566A7f5138D6896aBf108
+   > balance:             1.726360592462892843
+   > gas used:            1041563
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.02083126 ETH
 
-// contract myContract{
-//     struct patientsData {
-//         string patientName;
-//         string doctorName;
-//     }
 
-//     string pname;
-//     string dname;
+   Deploying 'Records'
+   -------------------
+   > transaction hash:    0x19dcda7a7d58f961f356956ac4052faacedd1824d0c0699b5f7a1194a4f4834b
+   > Blocks: 2            Seconds: 18
+   > contract address:    0xF9b3f12B50C80ab5BF36517eE61e0f95dc820B3c
+   > account:             0x087298b2F76741E2D30566A7f5138D6896aBf108
+   > balance:             1.696544872462892843
+   > gas used:            1490786
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.02981572 ETH
 
-//     function callTheFunctions(string memory _patientId, string memory _doctorId, string memory _name, string memory _docName) external returns(patientsData memory){
-//         //define the contracts instance varibales.
-//         //contractName varibaleName = contractName (address of the contract);
-//         patientsData memory patientsData1;
-//         Patients patient_ = Patients(contractPatient);
-//         Doctors doctor_ = Doctors(contractDoctor);
 
-//         //now we can call the functions of the contracts....
-//         //example...
-//         //store the name of the patient in the patientsContract
-//         patient_.addPatientName(_patientId, _name);
-//         pname = patient_.getPatientName(_patientId);
-//         patientsData1.patientName = patient_.getPatientName(_patientId);
-//         // patientsData.patientName=pname;
-//         // return currentPatientName;
-//         // return pname;
-//         //Now storing the doctors name and getting it.
-//         doctor_.addDoctorName(_doctorId, _docName);
-//         patientsData1.doctorName = doctor_.getDoctorName(_doctorId);
-//         dname = doctor_.getDoctorName(_doctorId);
-//         return patientsData1;
+   Deploying 'MedicalInfoAddGet'
+   -----------------------------
+   > transaction hash:    0xb03dd93b64dd0ff4f43eec38a206e0d078fd3aba2ebbfbffe221e0b5edd68bbd
+   > Blocks: 2            Seconds: 18
+   > contract address:    0x9dC0c0Bc3c011a2b485c43b2B0394011193A3415
+   > account:             0x087298b2F76741E2D30566A7f5138D6896aBf108
+   > balance:             1.598130532462892843
+   > gas used:            4920717
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.09841434 ETH
 
-//     }
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:           0.1983072 ETH
 
-// }
+
+Summary
+=======
+> Total deployments:   6
+> Final cost:          0.2022905 ETH
